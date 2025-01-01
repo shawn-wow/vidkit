@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vidkit</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- 标题栏 -->
+    <div class="title-bar">
+        <div class="title-left">
+            <img src="../../assets/logo.svg" class="logo" alt="logo">
+            <span class="app-name">Vidkit</span>
+            <span class="version" id="appVersion">0.0.0</span>
+        </div>
+        <div class="title-right">
+            <button class="icon-btn" id="menuBtn">
+                <img src="../../assets/menu.svg" alt="menu">
+            </button>
+            <div class="window-controls">
+                <button id="minBtn">─</button>
+                <button id="maxBtn">□</button>
+                <button id="closeBtn" class="close">×</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 输入区域 -->
+    <div class="input-area">
+        <div class="url-input-group">
+            <input type="text" class="url-input" id="urlInput" placeholder="请输入网址">
+            <button class="new-task-btn" id="newTaskBtn">新建下载任务</button>
+        </div>
+        <div class="options-area">
+            <label>
+                <input type="checkbox" id="bbdownCb">
+                <span class="checkbox-label" id="bbdownCbLabel">BBDown</span>
+            </label>
+            <!-- <label>
+                <input type="checkbox" id="autoDownloadCb">
+                <span class="checkbox-label" id="autoDownloadCbLabel">解析完自动下载</span>
+            </label> -->
+            <div class="download-path">
+                <span class="path-text" id="downloadPath" title="C:\Downloads">C:\Downloads</span>
+                <button class="change-path-btn" id="changePathBtn">修改</button>
+            </div>
+            <!-- <label class="auto-download-switch">
+                <span id="autoDownloadSwitchLabel">解析完自动下载</span>
+                <div class="switch" id="autoDownloadSwitch"></div>
+            </label> -->
+        </div>
+    </div>
+
+    <!-- 列表操作区 -->
+    <div class="list-operations">
+        <select class="status-filter" id="statusFilter">
+            <option value="all">全部</option>
+            <!-- <option value="parse-success">解析成功</option> -->
+            <!-- <option value="parse-failed">解析失败</option> -->
+            <option value="downloading">下载中</option>
+            <option value="download-success">下载成功</option>
+            <option value="download-failed">下载失败</option>
+        </select>
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="搜索URL、标题">
+            <span class="clear-icon" id="clearSearch">✕</span>
+        </div>
+        <div class="batch-actions">
+            <button class="batch-btn" id="selectAllBtn">全选</button>
+            <button class="batch-btn" id="selectInverseBtn">反选</button>
+            <button class="batch-btn" id="deleteBtn">删除</button>
+            <button class="batch-btn" id="moreBtn">●●●</button>
+        </div>
+    </div>
+    <div id="messageToast" class="message-toast hidden">
+        <span class="message-text"></span>
+    </div>
+    <div id="selectedToast" class="message-toast hidden">
+        <span class="message-text"></span>
+    </div>
+
+    <!-- 资源列表 -->
+    <div class="resource-list" id="resourceList">
+        <!-- <div class="resource-item">
+            <input type="checkbox" class="checkbox-input">
+            <div class="parsing-icon">解析中</div>
+            <div class="content">
+                <div class="url">https://www.example.com/video/123</div>
+            </div>
+        </div>
+
+
+        <div class="resource-item failed">
+            <input type="checkbox" class="checkbox-input">
+            <button class="retry-btn">解析</button>
+            <div class="content">
+                <div class="url">https://www.example.com/video/456</div>
+                <div class="failed-message">[2024/12/14 18:38:21] 解析失败[服务器返回空数据], 稍后点击解析按钮重试!</div>
+            </div>
+        </div>
+
+    
+        <div class="resource-item">
+            <input type="checkbox" class="checkbox-input">
+            <img src="https://pics2.baidu.com/feed/faedab64034f78f0fe004b8f9453165ab3191c30.jpeg@f_auto?token=4b5f132dc3018ca63aab400f4264dd55"
+                class="thumb" alt="缩略图">
+            <div class="content">
+                <div class="title">视频标题</div>
+                <div class="action-btns">
+                    <button class="action-btn download">下载</button>
+                    <button class="action-btn send-to-phone">发送到手机</button>
+                    <button class="action-btn more">更多</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <input type="checkbox" class="checkbox-input">
+            <img src="https://pics4.baidu1.com/feed/b64543a98226cffc27d9366c5663569ff403eaeb.jpeg@f_auto?token=a11af88ce7d06711cdfe241806cbc9bd"
+                class="thumb" alt="缩略图">
+            <div class="content">
+                <div class="title">正在下载的视频</div>
+                <div class="action-btns">
+                    <button class="action-btn cancel">取消</button>
+                    <button class="action-btn send-to-phone">发送到手机</button>
+                    <button class="action-btn more">•••</button>
+                </div>
+                <div class="progress-area">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
+                        <span class="progress-text">60%</span>
+                    </div>
+                    <div class="progress-info">
+                        <span class="file-path">C:\Downloads\video.mp4</span>
+                        <span class="size-info">100.1MB / 10.54KB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resource-item success">
+            <input type="checkbox" class="checkbox-input">
+            <img src="https://pics1.baidu.com/feed/e4dde71190ef76c665ba0e237074e1f5ae5167c4.jpeg@f_auto?token=ff84a41446a1fe55eccde3553655adb8"
+                class="thumb" alt="缩略图">
+            <div class="content">
+                <div class="title">下载成功的视频示例</div>
+                <div class="action-btns">
+                    <button class="action-btn play">播放视频</button>
+                    <button class="action-btn send-to-phone">发送到手机</button>
+                    <button class="action-btn more">更多</button>
+                </div>
+                <div class="progress-area">
+                    <div class="progress-info">
+                        <span>C:\Downloads\success-video.mp4</span>
+                        <span>128.5MB [2024/12/14 19:19:19]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resource-item download-failed">
+            <input type="checkbox" class="checkbox-input">
+            <img src="https://pics3.baidu.com/feed/1e30e924b899a9013eebcc2cf0f716740308f544.jpeg@f_auto?token=6194b9ed6b4e71cbcecbf81b0795e89b"
+                class="thumb" alt="缩略图">
+            <div class="content">
+                <div class="title">下载失败的视频示例</div>
+                <div class="action-btns">
+                    <button class="action-btn download">重新下载</button>
+                    <button class="action-btn send-to-phone">发送到手机</button>
+                    <button class="action-btn more">更多</button>
+                </div>
+                <div class="progress-area">
+                    <div class="progress-info">
+                        <span class="failed-message">[2024/12/14 18:38:21] 下载失败[网络发生错误], 请点击重新下载按钮重试!</span>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- 更多操作下拉菜单 -->
+    <div class="dropdown-menu" id="moreMenu">
+        <div class="dropdown-item">预览</div>
+        <div class="dropdown-item">复制输入网址</div>
+        <div class="dropdown-item">复制解析后网址</div>
+        <div class="dropdown-item">导出下载记录</div>
+        <div class="dropdown-item">清空所有下载记录</div>
+    </div>
+
+    <!-- 二维码弹窗 -->
+    <div class="modal hidden" id="qrcodeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">扫码在手机上打开</div>
+                <button class="modal-close">×</button>
+            </div>
+            <div class="qrcode-container" id="qrcodeContainer"></div>
+        </div>
+    </div>
+
+    <!-- 确认对话框 -->
+    <div class="modal hidden" id="confirmModal">
+        <div class="confirm-dialog">
+            <div class="confirm-message">确定要删除选中的项目吗？</div>
+            <div class="confirm-buttons">
+                <button class="confirm-btn cancel">取消</button>
+                <button class="confirm-btn confirm">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"></script>
+    <script src="util.js"></script>
+    <script src="renderer.js"></script>
+
+</body>
+
+</html>

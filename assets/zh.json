@@ -1,0 +1,126 @@
+{
+    "software-info": "本工具初衷为方便大家本地存储喜欢的视频或取素材，它为您提供了从各种平台检索视频的服务，但您有责任尊重并遵守各个视频平台或内容创作者的版权政策。我们强烈建议仅将下载用于个人使用。",
+    "help-button": "帮助",
+    "new-task": {
+        "input-placeholder": "请输入网址",
+        "input-bb-placeholder": "请输入BB网址",
+        "button": "新建下载",
+        "invalid-url": "未提取到有效的网址",
+        "invalid-bb-url": "未提取到有效的BB网址"
+    },
+    "change-path": {
+        "button": "修改下载位置",
+        "download-path": "[点击打开]",
+        "choose-dialog-title": "选择下载位置"
+    },
+    "parse": {
+        "bbdown-cb-label": "BBDown",
+        "auto-download-cb-label": "解析完自动下载",
+        "parse": "重试",
+        "parsing": "解析中",
+        "parse-warn": "正在解析，请稍后再试",
+        "invalid-url": "请输入有效的URL",
+        "parse-failed": "服务器返回了空数据, 稍后点击[解析]再试！"
+    },
+    "filter": {
+        "all": "全部",
+        "parse-success": "未下载[已解析]",
+        "parse-failed": "解析失败",
+        "downloading": "正在下载",
+        "download-success": "下载成功",
+        "download-failed": "下载失败"
+    },
+    "search": {
+        "input-placeholder": "输入标题、网址",
+        "clear": "清空"
+    },
+    "list-operations": {
+        "select-all": "全选",
+        "select-all-title": "全选/取消全选",
+        "select-inverse": "反选",
+        "selected-tips": "已选",
+        "clear": "清空所有下载记录",
+        "delete": "删除",
+        "more": "更多"
+    },
+    "list": {
+        "thumb-alt": "缩略图",
+        "download-btn": "下载",
+        "cancel-btn": "取消",
+        "redownload-btn": "重新下载",
+        "open-btn": "播放",
+        "more-btn": "更多",
+        "copy-url-btn": "复制网址",
+        "send2phone-btn": "用手机打开",
+        "send2phone-btn-title": "可使用手机浏览器下载视频到手机",
+        "send2phone-scan-tip": "扫码在手机上打开",
+        "open-file-path": "打开下载位置",
+        "preview": "预览[可使用浏览器下载]",
+        "copy-source-url": "复制下载链接",
+        "copy-url": "复制网址"
+        
+    },
+
+    "auto-detect-checkbox-label": "自动嗅探",
+    "download-progress-description": "下载进度：",
+    "downloaded-file-path-description": "下载路径：",
+    "downloading-state-description": "准备下载...",
+    "downloaded-success-description": "下载成功！",
+    "downloading-fail-notification": "试试[重新下载]",
+    "download-done": {
+        "completed": "下载完成",
+        "interrupted ": "下载被中断",
+        "cancelled": "下载被取消",
+        "default": "下载失败:"
+    },
+    "file-size": "文件大小",
+    "download-button": {
+        "download": "下载",
+        "cancel": "取消",
+        "openDownloadDir": "打开下载位置"
+    },
+    "delete-button": "删除",
+    "help-window-target": "帮助窗口",
+    "help-author-info": "需要帮助请联系作者，邮箱: abc@google.com",
+    "copy": "复制 Ctrl+C",
+    "paste": "粘贴 Ctrl+V",
+    "cut": "剪切 Ctrl+X",
+    "selectall": "全选 Ctrl+A",
+    "delete": "删除 Del",
+    "dialog": {
+        "error-title": "错误",
+        "cancel-task-warning": "是否要停止当前任务？停止后你可以点击重新下载。",
+        "cancel-task-btn-no": "继续下载",
+        "cancel-task-btn-ok": "取消下载",
+        "delete-task-warning": "个任务将被删除，是否要删除？\r[已下载的文件不会被删除]",
+        "delete-task-btn-no": "不删除",
+        "delete-task-btn-ok": "删除",
+        "close-download-warning": "有未完成的下载任务，是否关闭？",
+        "close-download-btn-no": "不关闭",
+        "close-download-btn-ok": "关闭",
+        "clear-data-warning": "个任务将被删除，是否要清空？\r[已下载的文件不会被删除]",
+        "clear-data-btn-no": "不清空",
+        "clear-data-btn-ok": "清空"
+    },
+    "title-bar": {
+        "minimize": "最小化",
+        "maximize": "最大化",
+        "restore": "还原",
+        "close": "关闭",
+        "help": "帮助",
+        "about": "关于",
+        "settings": "设置",
+        "menu": "菜单"
+    },
+    "menu": {
+        "clear-cache": "清除缓存",
+        "upgrade": "检查更新",
+        "current-version": "当前版本：",
+        "help": "帮助",
+        "love": "为爱发电!"
+    },
+    "send-to-phone": {
+        "btn": "发送到手机",
+        "scan-tip": "扫码在手机上打开"
+    }
+}
